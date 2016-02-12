@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {#<meta charset="utf-8">#}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="{{ asset('bundles/app/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- for fontawesome icon css file -->
+    <link href="{{ asset('bundles/app/css/font-awesome.min.css') }}" rel="stylesheet">
+    <!-- for content animate css file -->
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/animate.css') }}">
+    <!-- google fonts  -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Metal+Mania' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+    <!-- for news ticker css file -->
+    <link href="{{ asset('bundles/app/css/li-scroller.css') }}" rel="stylesheet">
+    <!-- slick slider css file -->
+    <link href="{{ asset('bundles/app/css/slick.css') }}" rel="stylesheet">
+    <!-- website theme file -->
+    <!-- <link href="css/theme-red.css" rel="stylesheet"> -->
+    <!-- <link href="css/theme-yellow.css" rel="stylesheet"> -->
+    <link href="{{ asset('bundles/app/css/theme.css') }}" rel="stylesheet">
+    <!-- main site css file -->
+    <link href="{{ asset('bundles/app/style.css') }}" rel="stylesheet">
+
+
+    <link href="{{ asset('bundles/app/my-css.css') }}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    {% block stylesheets %}
+    {% endblock stylesheets %}
+
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
+<!-- End Preloader -->
+
+<a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+
+<div class="container">
+    <div class="box_wrapper">
+        <!-- ==================start header=============== -->
+        <header id="header">
+            {% block header %}
+                {% include '@App/Default/partial_header.html.twig' %}
+            {% endblock header %}
+        </header>
+        <!-- ==================End header=============== -->
+        <!-- start news sticker -->
+        {% block newsSticker %}
+            {{ render(controller('AppBundle:Default:partialLatestPosts')) }}
+        {% endblock newsSticker %}
+        <!-- End news sticker -->
+        <!-- =========================
+
+        <!-- ==================start content body section=============== -->
+        <section id="contentbody">
+            {% block body %}{% endblock %}
+        </section>
+        <!-- ==================End content body section=============== -->
+
+        <footer id="footer">
+            {% block footer %}
+                {% include '@App/Default/partial_footer.html.twig' %}
+            {% endblock footer %}
+        </footer>
+    </div><!-- /.box_wrapper -->
+</div><!-- /.container -->
+
+{% include '@App/Default/scripts.html.twig' %}
+
+{% block modal %}
+    <div id="modal_form"><!-- Сaмo oкнo -->
+        <span id="modal_close">X</span> <!-- Кнoпкa зaкрыть -->
+        <!-- Тут любoе сoдержимoе -->
+    </div>
+    <div id="overlay"></div><!-- Пoдлoжкa -->
+{% endblock %}
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>

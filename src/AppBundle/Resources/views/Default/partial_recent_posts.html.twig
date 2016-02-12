@@ -1,0 +1,21 @@
+{% block singleLeftbar %}
+    <!-- start single leftbar -->
+    <div class="single_leftbar">
+        <h2><span>Recent Post</span></h2>
+        <div class="singleleft_inner">
+            <ul class="recentpost_nav wow fadeInDown">
+
+                {% for item in recentPosts %}
+                    <li>
+                        <a href="{{ path('blog_view', {'slug': item.slug } ) }}">
+                            <img src="http://lorempixel.com/150/80/" alt="img">
+                        </a>
+                        <a class="recent_title"
+                           href="{{ path('blog_view', {'slug': item.slug } ) }}"> {{ item.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <!-- start single leftbar -->
+{% endblock singleLeftbar %}

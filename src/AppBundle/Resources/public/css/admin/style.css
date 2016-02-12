@@ -1,0 +1,7 @@
+.drag_n_drop--imgPath{
+    width: 150px;
+    height: 100px;
+    cursor: pointer;
+    border: 2px solid #e0e0e0;
+    background: #f9f9f9;
+}

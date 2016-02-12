@@ -1,0 +1,44 @@
+{% extends '@App/base.html.twig' %}
+
+{% block title %}
+    Blog!
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <!-- start left bar content -->
+        {% block leftBar %}
+            {% include '@App/Default/partial_leftBar.html.twig' %}
+        {% endblock leftBar %}
+        <!-- End left bar content -->
+
+        <!-- start left middlebar content -->
+        {% block leftMiddlebar %}
+            {% include '@App/Default/partial_leftMiddlebar.html.twig' %}
+        {% endblock leftMiddlebar %}
+        <!-- End left middlebar content -->
+
+        <!-- start left rightbar content -->
+        {% block leftRightbar %}
+            {{ render(controller('AppBundle:Default:partialPopularItems')) }}
+        {% endblock leftRightbar %}
+        <!-- End left rightbar content -->
+    </div>
+{% endblock %}
+
+{#<link href="{{ asset('bundles/app/fine-uploader/fine-uploader-new.min.css')}}" rel="stylesheet">#}
+{#<script type="text/javascript" src="{{ asset('bundles/app/fine-uploader/fine-uploader.min.js')}}"></script>#}
+{#<script type="text/javascript">#}
+    {#var uploader = new qq.FineUploader(#}
+            {#{#}
+                {#element: document.getElementById('fine-uploader'),#}
+                {#request: {#}
+                    {#endpoint: "{{ oneup_uploader_endpoint('gallery') }}",#}
+                    {#params: {#}
+                        {#gallery: "{{ gallery.id }}"#}
+                    {#}#}
+                {#}#}
+            {#});#}
+{#</script>#}
+
+{#<div id="fine-uploader"></div>#}

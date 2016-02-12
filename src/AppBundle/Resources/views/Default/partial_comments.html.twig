@@ -1,0 +1,7 @@
+    {% for item in comments %}
+        <li class="sing_commentbox">
+            <a href="#" class="author_name"><i class="fa fa-user"></i>{{ item.user }}</a>
+            <a href="#" class="post_date"><i class="fa fa-clock-o"></i>{{ item.createdon|date("m/d/Y") }}</a>
+            <p>{{ item.text }}</p>
+        </li>
+    {% endfor %}

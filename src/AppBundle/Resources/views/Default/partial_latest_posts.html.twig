@@ -1,0 +1,13 @@
+{% block newsSticker %}
+    <div class="latest_newsarea">
+        <span>Latest Post</span>
+        <ul id="ticker01" class="news_sticker">
+
+            {% for item in latestPosts %}
+            <li>
+                <a href="{{ path('blog_view', {'slug': item.slug } ) }}">{{ item.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock newsSticker %}

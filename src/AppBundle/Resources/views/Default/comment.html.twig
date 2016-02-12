@@ -1,0 +1,23 @@
+    <div class="single_archive wow fadeInDown">
+        <a href="{{ path('blog_view', {'slug': item.slug } ) }}"><img
+                    src="http://lorempixel.com/650/310/" alt="img"></a>
+        <a href="{{ path('blog_view', {'slug': item.slug } ) }}" class="read_more">
+            Read More
+            <i class="fa fa-angle-double-right"></i>
+        </a>
+        <div class="singlearcive_article">
+            <h2>
+                <a href="{{ path('blog_view',{'slug': item.slug } ) }}">
+                    {{ item.title }}
+                </a>
+            </h2>
+            <a class="author_name" href="#">
+                <i class="fa fa-user"></i>{{ item.author }}
+            </a>
+            <a class="post_date" href="#">
+                <i class="fa  fa-clock-o"></i>{{ item.createdDate|date("m/d/Y") }}
+            </a>
+            {{ render(controller('AppBundle:Default:partialCountComments',  { 'id': item.id })) }}
+            <p>{{ item.shortText }}</p>
+        </div>
+    </div>

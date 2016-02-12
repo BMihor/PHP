@@ -1,0 +1,23 @@
+photo:
+    pattern:  /ajax-photo
+    defaults: { _controller: AppBundle:Default:uploadPhoto }
+
+blog_remove:
+    path:     /blog/remove/{slug}
+    defaults: { _controller: AppBundle:Default:remove }
+
+blog_create:
+    path: /blog/create/
+    defaults: { _controller: AppBundle:Default:create }
+
+blog_view_development_route:
+    pattern: /blog/page/{page}
+    defaults: {_controller: AppBundle:Default:index, page: 1 }
+
+blog_view:
+    path:     /blog/{slug}
+    defaults: { _controller: AppBundle:Default:view }
+
+blog_homepage:
+    path:     /blog/
+    defaults: { _controller: AppBundle:Default:index }

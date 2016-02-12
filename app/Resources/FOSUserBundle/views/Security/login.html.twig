@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+{#{% extends 'HWIOAuthBundle::layout.html.twig' %}#}
+{#{% block hwi_oauth_content %}#}
+    {#{% if error %}#}
+        {#<span>{{ error }}</span>#}
+    {#{% endif %}#}
+    {#{% for owner in hwi_oauth_resource_owners() %}#}
+        {#<a href="{{ hwi_oauth_login_url(owner) }}">{{ owner | trans({}, 'HWIOAuthBundle') }}</a>     <br />#}
+    {#{% endfor %}#}
+{#{% endblock hwi_oauth_content %}#}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block title %}
+    Auth!
+{% endblock %}
+
+{% block body %}
+
+    <section id="message">
+        <div class="block-border">
+            <div class="block-content no-title dark-bg">
+                <p class="mini-infos">For demo website, use <b>admin</b> / <b>admin</b></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="login-block">
+        <div class="block-border">
+            <div class="block-content">
+
+                <!--
+                IE7 compatibility: if you want to remove the <h1>,
+                add style="zoom:1" to the above .block-content div
+                -->
+                <h1>Auth</h1>
+                <div class="block-header">Please login</div>
+                {% block fos_user_content %}
+
+                    {% if error %}
+                        <p class="message error no-margin">
+                            {{ error.messageKey|trans(error.messageData, 'security') }}
+                        </p>
+                    {% endif %}
+                    <div>
+                        <a href="{{ path('facebook') }}">facebook</a> <br>
+                    </div>
+
+                    <form action="{{ path("fos_user_security_check") }}" method="post" class="form with-margin"
+                          name="login-form" id="login-form">
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+
+                        <input type="hidden" name="a" id="a" value="send">
+
+                        <p class="inline-small-label">
+                        <label for="username">
+                                <span class="big">
+                                {{ 'security.login.username'|trans }}
+                                </span>
+                        </label>
+                        <input type="text" id="username" name="_username" class="full-width"
+                               value="{{ last_username }}" required="required"/>
+                        </p>
+
+                        <p class="inline-small-label">
+                            <label for="password">
+                            <span class="big">
+                                {{ 'security.login.password'|trans }}
+                            </span>
+                            </label>
+                            <input type="password" id="password" name="_password" class="full-width"
+                                   required="required"/>
+                        </p>
+                        {#<button type="submit" class="float-right">Login</button>#}
+                        <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}"
+                               class="float-right"/>
+
+                        {#<p class="input-height">#}
+                            {#<input type="checkbox" name="keep-logged" id="keep-logged" value="1" class="mini-switch"#}
+                            {#checked="checked">#}
+                            {#<input type="checkbox" id="remember_me" name="_remember_me" value="on" class="mini-switch"/>#}
+                            {#<label for="remember_me" class="inline">#}
+                                {#{{ 'security.login.remember_me'|trans }}#}
+                            {#</label>#}
+                            {#<label for="keep-logged" >Keep me logged in</label>#}
+                        {#</p>#}
+
+                    </form>
+
+                {% endblock fos_user_content %}
+                <form class="form fos_user_resetting_request" id="password-recovery" method="POST"
+                      action="{{ path('fos_user_resetting_send_email') }}">
+                    <fieldset class="grey-bg no-margin collapse">
+                        <legend><a href="#">Lost password?</a></legend>
+                        <p class="input-with-button">
+                            <label for="username">{{ 'resetting.request.username'|trans }}</label>
+                            <input type="text" id="username" name="username" required="required"/>
+                            {#<input type="text" name="recovery-mail" id="recovery-mail" value="">#}
+                            {#<button type="button">Send</button>#}
+                            <input type="submit" value="{{ 'resetting.request.submit'|trans }}"/>
+                        </p>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+
+    </script>
+{% endblock %}

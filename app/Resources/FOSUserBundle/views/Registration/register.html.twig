@@ -1,0 +1,39 @@
+{#{% extends "FOSUserBundle::layout.html.twig" %}#}
+
+{% extends 'base.html.twig' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block title %}
+    Registration!
+{% endblock %}
+
+{% block body %}
+    <section id="message">
+        <div class="block-border">
+            <div class="block-content no-title dark-bg">
+                <p class="mini-infos">For demo website, use <b>admin</b> / <b>admin</b></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="register-block">
+        <div class="block-border">
+            <div class="block-content">
+
+                <!--
+                IE7 compatibility: if you want to remove the <h1>,
+                add style="zoom:1" to the above .block-content div
+                -->
+                <h1>Registration</h1>
+                <div class="block-header">Please registration</div>
+                {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                {{ form_widget(form) }}
+                <div>
+                    <input type="submit" value="{{ 'registration.submit'|trans }}" />
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </section>
+{% endblock %}

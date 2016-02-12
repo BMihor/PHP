@@ -1,0 +1,28 @@
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <div class="row">
+            <div class="right_bar">
+                <!-- start Popular Post -->
+                <div class="single_leftbar wow fadeInDown">
+                    <h2><span>Popular Post</span></h2>
+                    <div class="singleleft_inner">
+                        <ul class="catg3_snav ppost_nav wow fadeInDown">
+                            {% for item in popularItems %}
+                                <li>
+                                    <div class="media">
+                                        <a href="{{ path('blog_view', {'slug': item.slug } ) }}" class="media-left">
+                                            <img alt="img" src="http://lorempixel.com/70/70/">
+                                        </a>
+                                        <div class="media-body">
+                                            <a href="{{ path('blog_view', {'slug': item.slug } ) }}"
+                                               class="catg_title"> {{ item.title }}</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <!-- End Popular Post -->
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,14 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/admin/style.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/app/js/admin/jquery.filedrop.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/admin/js.fileDropBlock.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/admin/js.fileLoadByDefault.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/admin/init.js') }}"></script>
+{% endblock %}

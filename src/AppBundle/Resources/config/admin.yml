@@ -1,0 +1,25 @@
+parameters:
+
+services:
+    app.admin.photo_file:
+        class: AppBundle\Admin\PhotoFileAdmin
+        arguments: [~, AppBundle\Entity\PhotoFile, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: PhotoFile}
+    app.admin.user:
+        class: AppBundle\Admin\UserAdmin
+        arguments: [~, AppBundle\Entity\User, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: User}
+
+    app.admin.user_post:
+        class: AppBundle\Admin\UserPostAdmin
+        arguments: [~, AppBundle\Entity\UserPost, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: UserPost}
+
+    app.admin.blog_comments:
+        class: AppBundle\Admin\BlogCommentsAdmin
+        arguments: [~, AppBundle\Entity\BlogComments, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: BlogComments}
